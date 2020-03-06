@@ -1,0 +1,37 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Fichero de Tabla de Contenidos de JavaHelp</title>
+	<style type="text/css">
+	span {  font-family: courier;    background-color: #eeeeee;     padding: 5px 5px 5px 5px;    margin-right: 10px;     margin-left: 10px; }
+  .codigo {  font-family: courier;    background-color: #eeeeee;     padding: 5px 5px 5px 5px;    margin-right: 10px;     margin-left: 10px; }
+</style>
+</head>
+<body>
+<h1>Fichero de Tabla de Contenidos de JavaHelp</h1>
+<p> Esta tabla de contenidos no es más que una especie de "árbol".
+<p> Creando elementos principales y dentro de los mismos los seundarios y asi sucesibamente</p>
+<h3>Cabecera :</h3>
+<p>&nbsp; Definimos un Fichero XML  {<span>&lt;?xml version='1.0' encoding='ISO-8859-1'?&gt;</span>}
+<h3>Contenido : </h3>
+<p>&nbsp;Definimos un Espacio de nombres toc {<span>&lt;toc version="1.0"&gt;[...] &lt;/toc&gt; </span>}
+<p>&nbsp;&nbsp;&nbsp; Dentro de este espacio aplicamos gerarquias , metiendo unas entradas {<span>&lt;tocitem /&gt; } dentro de otras.
+<p>&nbsp;&nbsp;&nbsp; Creamos una entrada {<span>&lt;tocitem /&gt; } por cada uno de los  html que creamos :
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. mostramos , un "texto" {<span>url="textoMostrado"</span>}
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. hacemos referencia , una "clave" {<span>target="clavedelfichero"</span>}
+<h3>Nota aclaratoria:</h3>
+<p>&nbsp;El fichero toc_file tiene extensión .xml  en nuestro ejemplo será toc_file.xml. Lo colocaremos debajo del directorio help, en parelelo con el subdirectorio html.
+
+<h3>Codigo :</h3>
+<p class="codigo">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br>
+	  &lt;toc version="1.0"&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;text="[FICHERO] JavaHelp"    target="definicion"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tocitem text="[FICHERO] Mapa"    target="map_file"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tocitem text="[FICHERO] Tabla de Contenidos"    target="toc_file"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tocitem text="[FICHERO] Indice"    target="indice_file"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tocitem text="[FICHERO] Pestaña Busqueda"    target="Carpeta_JavaHelpSearch"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tocitem text="[FICHERO] Configuracion"    target="help_set_file"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;/tocitem&gt;<br>
+&lt;/toc&gt;</p>
+</body>
+</html>

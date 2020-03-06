@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Fichero índice de JavaHelp</title>
+	<style type="text/css">
+	span {  font-family: courier;    background-color: #eeeeee;     padding: 5px 5px 5px 5px;    margin-right: 10px;     margin-left: 10px; }
+  .codigo {  font-family: courier;    background-color: #eeeeee;     padding: 5px 5px 5px 5px;    margin-right: 10px;     margin-left: 10px; }
+</style>
+</head>
+<body>
+<h1>Fichero índice de JavaHelp</h1>
+<h3>Cabecera :</h3>
+<p>&nbsp; Definimos un Fichero XML  {<span>&lt;?xml version='1.0' encoding='ISO-8859-1'?&gt;</span>}
+<p>&nbsp; Definimos tipo de Documento : index {<span>&lt;!DOCTYPE map&gt;</span>}
+<h3>Contenido : </h3>
+<p>&nbsp;Definimos un Espacio de nombres index {<span>&lt;index version="1.0"&gt;[...] &lt;/index&gt; </span>}
+<p>&nbsp;&nbsp;&nbsp; Dentro de este espacio aplicamos ordenamos las entradas segun tu criterio , metiendo unas entradas {<span>&lt;indexitem /&gt; } antes que otras.
+<p>&nbsp;&nbsp;&nbsp; Creamos una entrada {<span>&lt;indexitem /&gt; } por cada uno de los  html que creamos :
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. mostramos , un "texto" {<span>text="textoMostrado"</span>}
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. hacemos referencia , una "clave" {<span>target="clavedelfichero"</span>}
+<h3>Nota aclaratoria:</h3>
+<p>&nbsp; El fichero index_file tiene extensión .xml  en nuestro ejemplo será index_file.xml. Lo colocaremos debajo del directorio help, en parelelo con el subdirectorio html.
+
+<h3>Codigo :</h3>
+
+<p class="codigo">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br>
+	  &lt;index version="1.0"&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;indexitem text="[entrada 0] JavaHelp"    target="definicion"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;indexitem text="[entrada 1] Mapa"    target="map_file"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;indexitem text="[entrada 2] Tabla de Contenidos"    target="toc_file"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;indexitem text="[entrada 3] Indice"    target="indice_file"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;indexitem text="[entrada 4] Pestaña Busqueda"    target="Carpeta_JavaHelpSearch"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;indexitem text="[entrada 5] Configuracion"    target="help_set_file"/&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/indexitem&gt;<br>
+&lt;/index&gt;</p>
+
+</body>
+</html>
+

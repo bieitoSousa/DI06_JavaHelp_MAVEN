@@ -1,0 +1,84 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Fichero de Tabla de Contenidos de JavaHelp</title>
+	<style type="text/css">
+	span {  font-family: courier;    background-color: #eeeeee;     padding: 5px 5px 5px 5px;    margin-right: 10px;     margin-left: 10px; }
+  .codigo {  font-family: courier;    background-color: #eeeeee;     padding: 5px 5px 5px 5px;    margin-right: 10px;     margin-left: 10px; }
+.comentario { color: #0000ff;}
+</style>
+</head>
+<body>
+<h1>JavaHelp</h1>
+<h2>¿Qué es JavaHelp?</h2>
+JavaHelp es un API que junto con un conjunto de herramientas nos permite crear potentes ayudas para integrarlas en nuestras aplicaciones.
+<h2>¿Qué puedo hacer con JavaHelp?</h2>
+<p>Pues puedes hacer ayudes muy profesionales con índices, Tablas de contenidos, Glosario de términos, sección de favoritos, motor de búsqueda, formato increíblemente rico, Ayudas poppups, Context-Sensitive, etc..
+<h2>Visor JavaHelp :</h2>
+<p class="codigo">
+&nbsp;&nbsp; &gt; java –jar hsviewer.jar
+</p>
+
+<h2>El código java para manejar JavaHelp :</h2>
+<h4>Carga el fichero de ayuda y Crea el Objeto HelpSet<h4>
+<p class="codigo">
+static final String hsRuta =  "."+File.separator+"help" + File.separator + "help_set.hs";<br>
+&nbsp;&nbsp;public  HelpSet start() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp; HelpSet hs = null;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("la ruta es "+hsRuta);<br>
+&nbsp;&nbsp;&nbsp;&nbsp; try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; File fileHelpSet = new File(hsRuta);<span class="comentario">//localiza el fichero</span> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL hsURL = fileHelpSet.toURI().toURL();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  hs = new HelpSet(getClass().getClassLoader(), hsURL);<span class="comentario"> // crea un objeto Helpset</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp; } catch (Exception e) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("[ERROR: START HelpSet]"+e.getMessage());<br>   
+&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp; return hs;<br>
+&nbsp;&nbsp; }<br>
+</p>
+<h4>Crea el Objeto HelpBroker <h4>
+<p class="codigo">
+&nbsp;&nbsp; public  HelpBroker help(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp; HelpSet hs = null;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; HelpBroker hb = null;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp; if ((hs = start())!= null){<br>
+&nbsp;&nbsp;&nbsp;&nbsp; hb = hs.createHelpBroker ();<br>
+&nbsp;&nbsp;&nbsp;&nbsp; }else {System.out.println("no se ha creado el objeto HelpSet ");}<br>
+&nbsp;&nbsp;&nbsp;&nbsp; } catch (Exception et) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println("[ERROR: BUILD HelpBroker ]"+et.getMessage());<br>   
+&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp; return hb;<br>
+&nbsp;&nbsp; }<br>
+</p>
+<h4>Poner el Objeto HelpBroker en un jframe <h4>
+<p class="codigo">
+&nbsp;&nbsp; private void ponLaAyuda() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp; try {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Contenidos c = new Contenidos();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  HelpBroker hb = null;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  HelpSet helpset = null;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  if ((helpset = c.start()) != null) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ((hb = c.help(helpset)) != null) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hb.enableHelpOnButton(itemAyuda, "aplicacion", helpset);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hb.enableHelpKey(principal.getContentPane(), "ventana_principal", helpset);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  }<br>
+&nbsp;&nbsp;&nbsp;&nbsp; } catch (Exception e) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  e.printStackTrace();<br>
+&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;   }<br>
+&nbsp;&nbsp; private void creaVentanaPrincipal() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  principal = new JFrame("Ventana principal");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  JMenuBar menuBar = new JMenuBar();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  itemAyuda = new JMenuItem("Ayuda");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  menuBar.add(itemAyuda);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  botonMuetraSecundaria = new JButton("Pulsame");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  principal.setJMenuBar(menuBar);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  principal.getContentPane().setLayout(new FlowLayout());<br>
+&nbsp;&nbsp;   }<br>
+</p>
+
+
+</body>
+</html>

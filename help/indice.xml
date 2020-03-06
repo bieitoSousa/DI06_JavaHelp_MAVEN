@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='ISO-8859-1'  ?>
+<!DOCTYPE index
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/index_1_0.dtd">
+<index version="1.0">
+			<indexitem text="[entrada 0] JavaHelp"    target="definicion"/>
+			<indexitem text="[entrada 1] Mapa"    target="map_file"/>
+			<indexitem text="[entrada 2] Tabla de Contenidos"    target="toc_file"/>
+			<indexitem text="[entrada 3] Indice"    target="indice_file"/>
+		    <indexitem text="[entrada 4] Pestaña Busqueda"    target="Carpeta_JavaHelpSearch"/>
+			<indexitem text="[entrada 5] Configuracion"    target="help_set_file"/>
+		
+</index>

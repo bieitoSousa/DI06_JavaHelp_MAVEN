@@ -1,0 +1,13 @@
+Crear carpeta JavaHelpSearch
+----------------------------------------------------------------------------
+cd D:\Entregas\DI06_JavaHelp_MAVEN\help
+java -jar D:\Entregas\DI06_JavaHelp_MAVEN\anexos\jh2.0\javahelp\bin\jhindexer.jar html
+
+
+
+usar hsviewer
+----------------------------------------------------------------------------
+java –jar D:\Entregas\DI06_JavaHelp_MAVEN\anexos\jh2.0\demos\binhsviewer.jar
+
+
+

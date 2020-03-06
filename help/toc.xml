@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<toc version="1.0"> 
+<!--  categoryclosedimage="FolderClosed" categoryopenimage="FolderOpened"  topicimage="ItemIco"-->
+		<tocitem text="[FICHERO] JavaHelp"    target="definicion">
+           <tocitem text="[FICHERO] Mapa"    target="map_file"/>
+           <tocitem text="[FICHERO] Tabla de Contenidos"    target="toc_file"/>
+           <tocitem text="[FICHERO] Indice"    target="indice_file"/>
+		   <tocitem text="[FICHERO] Pestaña Busqueda"    target="Carpeta_JavaHelpSearch"/>
+		   <tocitem text="[FICHERO] Configuracion"    target="help_set_file"/>
+        </tocitem>
+</toc>

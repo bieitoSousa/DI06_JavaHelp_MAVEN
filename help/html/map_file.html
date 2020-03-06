@@ -1,0 +1,43 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Fichero mapa de JavaHelp</title>
+	<style type="text/css">
+	span {  font-family: courier;    background-color: #eeeeee;     padding: 5px 5px 5px 5px;    margin-right: 10px;     margin-left: 10px; }
+  .codigo {  font-family: courier;    background-color: #eeeeee;     padding: 5px 5px 5px 5px;    margin-right: 10px;     margin-left: 10px; }
+</style>
+</head>
+<body>
+<h1>Fichero mapa de JavaHelp</h1>
+<h3>Cabecera :</h3>
+<p>&nbsp; Definimos un Fichero XML  {<span>&lt;?xml version='1.0' encoding='ISO-8859-1'?&gt;</span>}
+<p>&nbsp; Definimos tipo de Documento : map {<span>&lt;!DOCTYPE map&gt;</span>}
+<h3>Contenido : </h3>
+<p>&nbsp;Definimos un Espacio de nombres map {<span>&lt;map version="1.0"&gt;[...] &lt;/map&gt; </span>}
+<p>&nbsp;&nbsp;&nbsp; Creamos una entrada {<span>&lt;mapID /&gt; } por cada uno de los  html que creamos :
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. una "clave" {<span>target="clavedelfichero"</span>}
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. una "ruta" {<span>url="html/main.html</span>}
+<h3>Nota aclaratoria:</h3>
+<p>&nbsp;Es decir, a cada fichero html se le da un nombre, que servirá para identificarlo a partir de ahora.
+<p>&nbsp;Tanto el resto de los ficheros de configuración de JavaHelp como nuestro código Java referenciarán a los ficheros .html con el nombre que pongamos en este fichero mapa.
+<p>&nbsp;El fichero mapa tiene extensión .jhm -Java Help Map-, y en nuestro ejemplo será map_file.jhm. Lo colocaremos debajo del directorio help, en parelelo con el subdirectorio html.
+
+<h3>Codigo :</h3>
+
+<p class = "codigo">
+&lt;?xml version='1.0' encoding='ISO-8859-1'?&gt;<br>
+	  &lt;!DOCTYPE map<br>
+	  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 2.0//EN"<br>
+	  "http://java.sun.com/products/javahelp/map_2_0.dtd"&gt;<br>
+	  &lt;map version="1.0"&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;mapID target="definicion" url="html/JavaHelp_definicion.html" /&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;mapID target="map_file" url="html/map_file.html" /&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;mapID target="toc_file" url="html/toc_file.html" /&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;mapID target="indice_file" url="html/indice_file.html" /&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;mapID target="Carpeta_JavaHelpSearch" url="html/Carpeta_JavaHelpSearch.html" /&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;mapID target="help_set_file" url="html/help_set_file.html" /&gt;<br>
+&lt;/map&gt;
+</p>
+
+</body>
+</html>

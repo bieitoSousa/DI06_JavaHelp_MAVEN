@@ -1,0 +1,79 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Fichero configuración de JavaHelp</title>
+	<style type="text/css">
+	span {  font-family: courier;    background-color: #eeeeee;     padding: 5px 5px 5px 5px;    margin-right: 10px;     margin-left: 10px; }
+  .codigo {  font-family: courier;    background-color: #eeeeee;     padding: 5px 5px 5px 5px;    margin-right: 10px;     margin-left: 10px; }
+</style>
+</head>
+<body>
+<h1>Fichero configuración de JavaHelp</h1>
+<p> Este fichero lo copiamos de un template y editamos sus campos
+<h3>Cabecera :</h3>
+<p>&nbsp; Definimos un Fichero xml  {<span>&lt;?xml version='1.0' encoding='ISO-8859-1'?&gt;</span>}
+<p>&nbsp; Definimos tipo de Documento : helpset {<span>&lt;!DOCTYPE helpset&gt;</span>}
+<h3>Contenido : </h3>
+<p>&nbsp;Definimos un Espacio de nombres helpset {<span>&lt;helpset version="1.0"&gt;[...] &lt;/helpset&gt; </span>}
+<p>&nbsp;&nbsp;&nbsp; Dentro de este espacio de nombres creamos entradas  {<span>&lt;title /&gt; </span> &nbsp;&nbsp; <span>&lt;maps /&gt; </span> &nbsp;&nbsp; <span>&lt;view /&gt; </span>}
+<p>&nbsp;&nbsp;&nbsp; Entrada Titulo {<span>&lt;title &gt;  nombreTitulo &lt;title /&gt;</span> } 
+<p>&nbsp;&nbsp;&nbsp; Entrada MAPS {<span>&lt;maps &gt;  [...] &lt;maps /&gt;</span> } 
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defimos Pagina por defecto de Ayuda : <span>&lt;homeID &gt;  targetdelFicheromap_file &lt;homeID /&gt;</span>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defimos el map :<span>&lt;mapref location =  "map_file.jhm" /&gt;</span>
+<p>&nbsp;&nbsp;&nbsp; Entrada VIEW {<span>&lt;maps &gt;  [...] &lt;maps /&gt;</span> } definimos 3 {Tabla Contenidos | Indice | Buscar}
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defimos NOMBRE: <span>&lt;name &gt;  {Tabla Contenidos | Indice | Buscar} &lt;name /&gt;</span>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defimos ETIQUETA: <span>&lt;label &gt;  {Tabla de contenidos | El indice | Buscar} &lt;label /&gt;</span>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defimos TIPO: <span>&lt;type &gt;  {javax.help.TOCView | javax.help.IndexView | javax.help.SearchView} &lt;type /&gt;</span>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Defimos DATOS: <span>&lt;data &gt;  {toc.xml | indice.xml | engine="com.sun.java.help.search.DefaultSearchEngine" &gt; JavaHelpSearch } &lt;data /&gt;</span>
+
+<h3>Nota aclaratoria:</h3>
+<p>&nbsp; En --> view/name=Buscar --> data necesita el atributo engine ="" y pasarle la carpeta {JavaHelpSearch}
+
+<h3>Codigo :</h3>
+
+<p class="codigo">&lt;?xml version="1.0" encoding='ISO-8859-1' ?&gt;<br>
+	    &lt;!DOCTYPE helpset<br>
+PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp HelpSet Version 1.0//EN"<br>
+"http://java.sun.com/products/javahelp/helpset_1_0.dtd"&gt;<br>
+&lt;helpset version="1.0"&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;title&gt;Ejemplo ayuda JavaHelp&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;maps&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Pagina por defecto al mostrar la ayuda --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;homeID&gt;definicion&lt;/homeID&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Que mapa deseamos --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mapref location="map_file.jhm"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;/maps&gt; <br>
+<br>
+&nbsp;&nbsp;&nbsp;&lt;!-- Las Vistas que deseamos mostrar en la ayuda --&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;!-- La tabla de contenidos --&gt; <br>
+&nbsp;&nbsp;&nbsp;&lt;view&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Tabla Contenidos&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Tabla de contenidos&lt;/label&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;javax.help.TOCView&lt;/type&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;data&gt;toc.xml&lt;/data&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;/view&gt; <br>
+<br>
+&nbsp;&nbsp;&nbsp;&lt;!-- El indice --&gt;
+<br>
+&nbsp;&nbsp;&nbsp;&lt;view&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Indice&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;El indice&lt;/label&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;javax.help.IndexView&lt;/type&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;data&gt;indice.xml&lt;/data&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;/view&gt;<br>
+  <br>
+  &nbsp;&nbsp;&nbsp;&lt;!-- La pestana de busqueda --&gt;
+  <br>
+&nbsp;&nbsp;&nbsp;&lt;view&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Buscar&lt;/name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;Buscar&lt;/label&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;javax.help.SearchView&lt;/type&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;data engine="com.sun.java.help.search.DefaultSearchEngine"&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaHelpSearch<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/data&gt;<br>
+&nbsp;&nbsp;&nbsp;&lt;/view&gt;<br>
+  <br>
+&lt;/helpset&gt;</p>
+
+</body>
+</html>
